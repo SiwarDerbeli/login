@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <h1>Register</h1>
+
+    {{ form_errors(registrationForm, {'attr': {'class': 'your-form-class w-75 mx-auto'}}) }}
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.roles) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button  type="submit" class="btn btn-primary m-2">Register</button>
+    {{ form_end(registrationForm) }}
+{% endblock %}
