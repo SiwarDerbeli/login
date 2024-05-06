@@ -33,9 +33,9 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
 
             // Redirect based on role
-            if (in_array('ROLE_MEDECIN', $user->getRoles())) {
+            if (in_array('ROLE_ENSEIGNANT', $user->getRoles())) {
                 return $this->redirectToRoute('app_patient_index');
-            } elseif (in_array('ROLE_TECH', $user->getRoles())) {
+            } elseif (in_array('ROLE_ETUDIANT', $user->getRoles())) {
                 return $this->redirectToRoute('app_analyse_index');
             } else {
                 // Default redirect

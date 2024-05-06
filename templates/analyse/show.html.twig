@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Patient{% endblock %}
+
+{% block body %}
+    <h1>Patient</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ patient.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ patient.nom}}</td>
+            </tr>
+            <tr>
+                <th>Durée</th>
+                <td>{{ patient.duree }}</td>
+            </tr>
+            <tr>
+                <th>Prérequis</th>
+                <td>{{ patient.prerequis }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ patient.contenu }}</td>
+            </tr>
+
+            
+        </tbody>
+    </table>
+
+<div class="d-flex w-100 align-content-center justify-content-center">
+    
+
+    <a class='btn btn-success m-2'  href="{{ path('app_patient_edit', {'id': patient.id}) }}">edit</a>
+
+    {{ include('patient/_delete_form.html.twig') }}
+</div>
+{% endblock %}

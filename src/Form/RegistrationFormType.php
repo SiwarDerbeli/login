@@ -46,8 +46,8 @@ class RegistrationFormType extends AbstractType
             ])
              ->add('roles', ChoiceType::class, [
                 'choices' => [
-                    'Medecin' => 'ROLE_MEDECIN',
-                    'Technicien' => 'ROLE_TECH',
+                    'Etudiant' => 'ROLE_ETUDIANT',
+                    'Enseignant' => 'ROLE_ENSEIGNANT',
                 ],
                 'multiple' => true,
                 'expanded' => true,

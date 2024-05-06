@@ -8,6 +8,7 @@
     {{ form_errors(registrationForm, {'attr': {'class': 'your-form-class w-75 mx-auto'}}) }}
 
     {{ form_start(registrationForm) }}
+    
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'

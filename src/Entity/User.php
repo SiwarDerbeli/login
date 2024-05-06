@@ -33,6 +33,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
+    #[ORM\OneToOne(mappedBy: 'etudiant', cascade: ['persist', 'remove'])]
+    private ?Projet $projet = null;
+
+   
+
     public function getId(): ?int
     {
         return $this->id;
@@ -111,4 +116,28 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return in_array($role, $this->roles);
     }
+
+    public function getProjet(): ?Projet
+    {
+        return $this->projet;
+    }
+
+    public function setProjet(?Projet $projet): static
+    {
+        // unset the owning side of the relation if necessary
+        if ($projet === null && $this->projet !== null) {
+            $this->projet->setEtudiant(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($projet !== null && $projet->getEtudiant() !== $this) {
+            $projet->setEtudiant($this);
+        }
+
+        $this->projet = $projet;
+
+        return $this;
+    }
+
+
 }
